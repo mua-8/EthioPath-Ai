@@ -1,0 +1,225 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Base palette - deep charcoal */
+  --color-charcoal-50: oklch(97.48% 0.0 120);
+  --color-charcoal-100: oklch(94.80% 0.005 120);
+  --color-charcoal-200: oklch(88.34% 0.01 120);
+  --color-charcoal-300: oklch(47.69% 0.015 120);
+  --color-charcoal-400: oklch(44.91% 0.02 120);
+  --color-charcoal-500: oklch(40.99% 0.02 120);
+  --color-charcoal-600: oklch(34.20% 0.015 120);
+  --color-charcoal-700: oklch(28.16% 0.01 120);
+  --color-charcoal-800: oklch(22.32% 0.008 120);
+  --color-charcoal-900: oklch(15.16% 0.005 120);
+  --color-charcoal-950: oklch(10% 0.003 120);
+
+  /* Premium emerald green accent palette */
+  --color-emerald-50: oklch(97.08% 0.02 145);
+  --color-emerald-100: oklch(93.79% 0.04 145);
+  --color-emerald-200: oklch(87.75% 0.08 145);
+  --color-emerald-300: oklch(79.68% 0.12 145);
+  --color-emerald-400: oklch(72.64% 0.15 150);
+  --color-emerald-500: oklch(65.55% 0.17 150);
+  --color-emerald-600: oklch(55.92% 0.14 150);
+  --color-emerald-700: oklch(45.58% 0.11 150);
+  --color-emerald-800: oklch(38.55% 0.08 150);
+  --color-emerald-900: oklch(32.39% 0.06 150);
+  --color-emerald-950: oklch(22.12% 0.04 150);
+
+  /* Updated background to premium dark */
+  --background: oklch(8% 0.005 120);
+  --foreground: var(--color-charcoal-100);
+  --card: var(--color-charcoal-900);
+  --card-foreground: var(--color-charcoal-100);
+  --popover: var(--color-charcoal-900);
+  --popover-foreground: var(--color-charcoal-100);
+  --primary: var(--color-charcoal-100);
+  --primary-foreground: var(--color-charcoal-950);
+  --secondary: var(--color-charcoal-800);
+  --secondary-foreground: var(--color-charcoal-200);
+  --muted: var(--color-charcoal-800);
+  --muted-foreground: var(--color-charcoal-400);
+  /* Updated accent to use emerald green */
+  --accent: var(--color-emerald-500);
+  --accent-foreground: var(--color-emerald-950);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.577 0.245 27.325);
+  --border: var(--color-charcoal-700);
+  --input: var(--color-charcoal-800);
+  --ring: var(--color-emerald-500);
+  --chart-1: var(--color-emerald-400);
+  --chart-2: var(--color-emerald-500);
+  --chart-3: var(--color-charcoal-400);
+  --chart-4: var(--color-charcoal-500);
+  --chart-5: var(--color-charcoal-600);
+  --radius: 0.75rem;
+  --sidebar: var(--color-charcoal-900);
+  --sidebar-foreground: var(--color-charcoal-100);
+  --sidebar-primary: var(--color-emerald-400);
+  --sidebar-primary-foreground: var(--color-emerald-950);
+  --sidebar-accent: var(--color-charcoal-800);
+  --sidebar-accent-foreground: var(--color-charcoal-100);
+  --sidebar-border: var(--color-charcoal-700);
+  --sidebar-ring: var(--color-emerald-500);
+
+  /* reduced shadow opacity */
+  --bento-shadow: inset 0 -20px 80px -20px #10b98110;
+}
+
+@theme inline {
+  --font-sans: "Inter", "Inter Fallback", system-ui, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  /* Charcoal theme colors */
+  --color-charcoal-50: var(--color-charcoal-50);
+  --color-charcoal-100: var(--color-charcoal-100);
+  --color-charcoal-200: var(--color-charcoal-200);
+  --color-charcoal-300: var(--color-charcoal-300);
+  --color-charcoal-400: var(--color-charcoal-400);
+  --color-charcoal-500: var(--color-charcoal-500);
+  --color-charcoal-600: var(--color-charcoal-600);
+  --color-charcoal-700: var(--color-charcoal-700);
+  --color-charcoal-800: var(--color-charcoal-800);
+  --color-charcoal-900: var(--color-charcoal-900);
+  --color-charcoal-950: var(--color-charcoal-950);
+  /* Emerald theme colors */
+  --color-emerald-50: var(--color-emerald-50);
+  --color-emerald-100: var(--color-emerald-100);
+  --color-emerald-200: var(--color-emerald-200);
+  --color-emerald-300: var(--color-emerald-300);
+  --color-emerald-400: var(--color-emerald-400);
+  --color-emerald-500: var(--color-emerald-500);
+  --color-emerald-600: var(--color-emerald-600);
+  --color-emerald-700: var(--color-emerald-700);
+  --color-emerald-800: var(--color-emerald-800);
+  --color-emerald-900: var(--color-emerald-900);
+  --color-emerald-950: var(--color-emerald-950);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html,
+  body {
+    @apply overflow-x-hidden;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Custom scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-charcoal-700);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-charcoal-600);
+  }
+
+  /* Firefox scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-charcoal-700) transparent;
+  }
+}
+
+/* Float animation for decorative elements */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-10px) translateX(5px);
+  }
+  50% {
+    transform: translateY(-5px) translateX(-5px);
+  }
+  75% {
+    transform: translateY(-15px) translateX(3px);
+  }
+}
+
+/* Infinite scroll animations */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Subtle glow effect for accent elements */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(16, 185, 129, 0.4);
+  }
+}
+
+/* Safe area padding for mobile devices with notches/home indicators */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
